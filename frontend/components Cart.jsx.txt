@@ -1,0 +1,25 @@
+components Cart.jsx
+
+import React from 'react';
+
+function Cart({ cart, removeFromCart }) {
+  return (
+    <div>
+      <h2>Your Cart</h2>
+      {cart.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <ul className="list-group">
+          {cart.map(book => (
+            <li key={book.id} className="list-group-item d-flex justify-content-between align-items-center">
+              {book.title} - ${book.price}
+              <button onClick={() => removeFromCart(book.id)} className="btn btn-danger btn-sm">Remove</button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export default Cart;
