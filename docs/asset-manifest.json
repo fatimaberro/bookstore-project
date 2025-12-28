@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/bookstore-project/static/css/main.abaaecac.css",
+    "main.js": "/bookstore-project/static/js/main.ea14cedb.js",
+    "static/media/catLogo.jpeg": "/bookstore-project/static/media/catLogo.eb5f08fee841c46a61f1.jpeg",
+    "index.html": "/bookstore-project/index.html",
+    "main.abaaecac.css.map": "/bookstore-project/static/css/main.abaaecac.css.map",
+    "main.ea14cedb.js.map": "/bookstore-project/static/js/main.ea14cedb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abaaecac.css",
+    "static/js/main.ea14cedb.js"
+  ]
+}
