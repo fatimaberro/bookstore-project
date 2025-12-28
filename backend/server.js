@@ -116,7 +116,7 @@ app.get("/api/books", (req, res) => {
 app.listen(PORT, () => console.log("API running on port " + PORT));
 
 //pour github 
-const cors = require("cors");
+
 app.use(cors({ origin: "*" }));
 
 
