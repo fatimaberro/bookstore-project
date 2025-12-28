@@ -19,18 +19,18 @@ const [booksError, setBooksError] = useState("");
 
 useEffect(() => {
   const loadBooks = async () => {
-    try {
-      setLoadingBooks(true);
-      setBooksError("");
+    setLoadingBooks(true);
+    setBooksError("");
 
+    try {
       const res = await fetch("https://bookstore-backend-zhuc.onrender.com/api/books");
-      if (!res.ok) throw new Error("API error");
+      if (!res.ok) throw new Error("API error: " + res.status);
 
       const data = await res.json();
       setBooks(data);
     } catch (err) {
-      console.error(err);
-      setBooksError("Failed to fetch");
+      console.error("Failed to fetch", err);
+      setBooksError("Failed to fetch books from the backend (Render).");
     } finally {
       setLoadingBooks(false);
     }
@@ -38,6 +38,7 @@ useEffect(() => {
 
   loadBooks();
 }, []);
+
 
 
 
