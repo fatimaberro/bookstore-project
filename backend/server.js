@@ -31,15 +31,19 @@ app.get("/", (req, res) => {
   res.json({ message: "Bookstore API is running" });
 });
 
-
 app.get("/api/books", (req, res) => {
-  db.query(
-    "SELECT id, title, author, price, image FROM books ORDER BY id",
-    (err, rows) => {
-      if (err) return res.status(500).json({ message: err.message });
-      res.json(rows);
+  // Si MySQL n'est pas connecté (Render), on renvoie fallback
+  if (!db || db.state === "disconnected") {
+    return res.json(fallbackBooks);
+  }
+
+  db.query("SELECT * FROM books", (err, results) => {
+    if (err) {
+      console.error("DB error:", err.message);
+      return res.json(fallbackBooks); // fallback même si erreur SQL
     }
-  );
+    return res.json(results);
+  });
 });
 
 // SIGNUP
